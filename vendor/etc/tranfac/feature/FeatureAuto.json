@@ -1,0 +1,19 @@
+{
+    "featureConfig": {
+        "tranfac.usb.charge.pe": "",
+        "tranfac.other.sdcard.external": "",
+        "tranfac.audio.speaker.num": "1",
+        "tranfac.audio.mic.num": "1",
+        "tranfac.sensor.gyroscope.virtual": "",
+        "tranfac.sensor.light_back": "Screen|SensorTek||",
+        "tranfac.usb.charge.reverse": "6",
+        "tranfac.usb.charge.reverse_c2c": "",
+        "tranfac.camera.dummy.front": "",
+        "tranfac.camera.dummy.yuv_index": "2",
+        "tranfac.camera.dummy.yuv2_index": "0",
+        "tranfac.camera.dummy.als_ic": "alspdt17",
+        "tranfac.camera.flashlight.front": "",
+        "tranfac.connect.gps": "",
+        "tranfac.connect.fm": ""
+    }
+}

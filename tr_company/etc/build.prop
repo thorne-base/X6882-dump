@@ -1,0 +1,22 @@
+####################################
+# from generate-common-build-props
+# These properties identify this partition image.
+####################################
+ro.product.tr_company.brand=TRANSSION
+ro.product.tr_company.device=COMMON
+ro.product.tr_company.manufacturer=TRANSSION
+ro.product.tr_company.name=TSSI
+ro.tr_company.build.date=Sat Apr 11 00:31:23 CST 2026
+ro.tr_company.build.date.utc=1775838683
+ro.tr_company.build.fingerprint=TRANSSION/TSSI/COMMON:14/UP1A.231005.007/260411V1590:user/release-keys
+ro.tr_company.build.id=UP1A.231005.007
+ro.tr_company.build.tags=release-keys
+ro.tr_company.build.type=user
+ro.tr_company.build.version.incremental=260411V1590
+ro.tr_company.build.version.release=14
+ro.tr_company.build.version.release_or_codename=14
+ro.tr_company.build.version.sdk=34
+####################################
+# from variable PRODUCT_TR_COMPANY_PROPERTIES
+####################################
+# end of file

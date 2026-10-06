@@ -1,0 +1,6 @@
+<displayConfiguration>
+    <lightSensor>
+        <type>android.sensor.subals</type>
+        <name></name>
+    </lightSensor>
+</displayConfiguration>

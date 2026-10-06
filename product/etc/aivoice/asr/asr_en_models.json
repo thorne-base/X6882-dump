@@ -1,0 +1,10 @@
+{
+    "acoustic" : "DfsmnEncoder-STEP-520000(2).pt.onnx-tmp-fp32.mnn",
+    "fbank" : "asr_en_fbank.bin",
+    "hwindow" : "asr_en_hann_window.bin",
+    "lm" : "asr_en_lm.bin",
+    "vocab" : "asr_en_vocab.bin",
+    "hwbaselm" : "asr_en_baselm.bin",
+    "hwmoulds" : "asr_en_moulds.bin",
+    "hwlm" : "asr_en_newlm.bin"
+}

@@ -1,0 +1,14 @@
+com.mediatek.vnet
+com.iflytek.inputmethod
+com.hugeland.cdsplus
+com.transsion.compass
+com.funbase.xradio
+com.transsion.filemanagerx
+com.transsion.gamespace.app
+com.transsion.healthlife
+com.transsion.letswitch
+com.transsion.calculator
+com.transsion.calendar
+com.transsion.notebook
+com.transsion.soundrecorder
+com.rlk.weathers

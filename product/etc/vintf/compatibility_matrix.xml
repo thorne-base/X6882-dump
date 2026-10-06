@@ -1,0 +1,41 @@
+<!--
+    Input:
+        vendor/transsion/security/config/../..//hardware/interfaces/security/hap/1.0//../../hap/framework_matrix.xml
+        vendor/transsion/security/config/../..//hardware/interfaces/security/hap/1.0//../../deviceauthen/framework_matrix.xml
+        vendor/transsion/security/config/../..//hardware/interfaces/security/hap/1.0//../../trancriticalparavfy/1.0/device_framework_matrix_tvrfy.xml
+        vendor/transsion/wcn/nfc/tms/proprietary/conf/nfc/hw/thn31/sample/device_framework_matrix.xml
+-->
+<compatibility-matrix version="7.0" type="framework">
+    <hal format="hidl" optional="false">
+        <name>vendor.tms.tmsnfc</name>
+        <version>1.0</version>
+        <interface>
+            <name>ITmsNfc</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="hidl" optional="true">
+        <name>vendor.transsion.hardware.security.deviceauthen</name>
+        <version>2.0</version>
+        <interface>
+            <name>IDeviceAuthen2</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="hidl" optional="true">
+        <name>vendor.transsion.hardware.security.hap</name>
+        <version>1.0</version>
+        <interface>
+            <name>IHap</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="hidl" optional="true">
+        <name>vendor.transsion.hardware.security.trancriticalparavfy</name>
+        <version>1.0</version>
+        <interface>
+            <name>ITranCriticalParaVfy</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+</compatibility-matrix>

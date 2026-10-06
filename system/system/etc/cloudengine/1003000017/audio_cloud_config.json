@@ -1,0 +1,11 @@
+{
+"v":"v1.1",
+"m":"n",
+"t":"20240409",
+"FUNCTION_REFUSEMEDIAFOCUS":["enable","com.rd.tengfei.bdnotification"],
+"FUNCTION_MULITIPLEPLAY":["enable","com.zhiliaoapp.musically.go"],
+"FUNCTION_FADEOUTIN":["enable","com.whatsapp"],
+"FUNCTION_MUTEAPPINPHONE":["enable","com.facebook.katana","com.ss.android.article.news","com.facebook.lite","com.snapchat.android","com.king.candycrushsaga","com.roblox.client","com.firsttouchgames.dls7"],
+"FUNCTION_ADDPERFORMANCE":["enable","com.king.candycrushsaga"],
+"FUNCTION_STOPPLAYBACK":["enable","com.facebook.katana","com.instagram.android","com.twitter.android","org.telegram.messenger"]
+}

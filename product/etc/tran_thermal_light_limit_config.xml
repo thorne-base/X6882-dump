@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright (C) 2012 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<!--
+package: com.foo
+
+level1:
+    param1: the first threshold of temperature rise
+    param2: hysteresis temperature of param1 when temperature down
+    param3: brightness ratio when temperature over the first threshold
+    param4: luxlimit. the threshold value of ambient light intensity, when
+             the ambient lux is lower than it, it is indoors.(0: invalid)
+
+level2:
+    param1: the second threshold of temperature rise
+    param2: hysteresis temperature of param1 when temperature down
+    param3: brightness ratio when temperature over the second threshold
+    param4: luxlimit. the threshold value of ambient light intensity, when
+             the ambient lux is lower than it, it is indoors.(0: invalid)
+
+level3:
+    param1: the second threshold of temperature rise
+    param2: hysteresis temperature of param1 when temperature down
+    param3: brightness ratio when temperature over the second threshold
+    param4: luxlimit. the threshold value of ambient light intensity, when
+             the ambient lux is lower than it, it is indoors.(0: invalid)
+-->
+<packages>
+    <!--<black_list_config package="com.transsion.XOSLauncher"/>-->
+    <white_list_config_autolight_on package="^.*$" level1="40,38,80,2000" level2="47,45,70,2000"/>
+    <white_list_config_auto_light_off package="com.android.chrome" level1="38,36,80,0" level2="40,38,65,0"/>
+    <white_list_config_auto_light_off package="com.whatsapp" level1="40,38,80,0" level2="42,40,60,0"/>
+    <white_list_config_auto_light_off package="com.transsion.camera" level1="40,38,80,0" level2="42,40,65,0"/>
+    <white_list_config_auto_light_off package="com.dts.freefireth" level1="40,38,80,0" level2="42,40,60,0"/>
+    <white_list_config_auto_light_off package="com.tencent.ig" level1="40,38,80,0" level2="42,40,60,0"/>
+    <white_list_config_auto_light_off package="com.mobile.legends" level1="40,38,80,0" level2="42,40,60,0"/>
+    <white_list_config_auto_light_off package="com.android.vending" level1="40,38,80,0" level2="42,40,60,0"/>
+    <white_list_config_auto_light_off package="com.ss.android.ugc.aweme" level1="40,38,80,0" level2="42,40,60,0"/>
+</packages>
