@@ -1,0 +1,698 @@
+{
+    "AAM_default_config": [{
+        "packageName": "com.transsion.aivoiceassistant",
+        "configData": {
+            "countryData": [{
+                    "country": "default",
+                    "install": 1,
+                    "enable": 1,
+                    "active": 0
+                },
+                {
+                    "country": "DZ",
+                    "install": 1,
+                    "enable": 1,
+                    "active": 0
+                },
+                {
+                    "country": "AE",
+                    "install": 1,
+                    "enable": 1,
+                    "active": 0
+                },
+                {
+                    "country": "EG",
+                    "install": 1,
+                    "enable": 1,
+                    "active": 0
+                },
+                {
+                    "country": "ET",
+                    "install": 1,
+                    "enable": 1,
+                    "active": 0
+                },
+                {
+                    "country": "AO",
+                    "install": 1,
+                    "enable": 1,
+                    "active": 0
+                },
+                {
+                    "country": "PK",
+                    "install": 1,
+                    "enable": 1,
+                    "active": 0
+                },
+                {
+                    "country": "SD",
+                    "install": 1,
+                    "enable": 1,
+                    "active": 0
+                },
+                {
+                    "country": "BJ",
+                    "install": 1,
+                    "enable": 1,
+                    "active": 0
+                },
+                {
+                    "country": "BW",
+                    "install": 1,
+                    "enable": 1,
+                    "active": 0
+                },
+                {
+                    "country": "BF",
+                    "install": 1,
+                    "enable": 1,
+                    "active": 0
+                },
+                {
+                    "country": "BI",
+                    "install": 1,
+                    "enable": 1,
+                    "active": 0
+                },
+                {
+                    "country": "TG",
+                    "install": 1,
+                    "enable": 1,
+                    "active": 0
+                },
+                {
+                    "country": "GM",
+                    "install": 1,
+                    "enable": 1,
+                    "active": 0
+                },
+                {
+                    "country": "CG",
+                    "install": 1,
+                    "enable": 1,
+                    "active": 0
+                },
+                {
+                    "country": "CD",
+                    "install": 1,
+                    "enable": 1,
+                    "active": 0
+                },
+                {
+                    "country": "CO",
+                    "install": 1,
+                    "enable": 1,
+                    "active": 0
+                },
+                {
+                    "country": "GN",
+                    "install": 1,
+                    "enable": 1,
+                    "active": 0
+                },
+                {
+                    "country": "GH",
+                    "install": 1,
+                    "enable": 1,
+                    "active": 0
+                },
+                {
+                    "country": "GA",
+                    "install": 1,
+                    "enable": 1,
+                    "active": 0
+                },
+                {
+                    "country": "ZW",
+                    "install": 1,
+                    "enable": 1,
+                    "active": 0
+                },
+                {
+                    "country": "CM",
+                    "install": 1,
+                    "enable": 1,
+                    "active": 0
+                },
+                {
+                    "country": "CI",
+                    "install": 1,
+                    "enable": 1,
+                    "active": 0
+                },
+                {
+                    "country": "KE",
+                    "install": 1,
+                    "enable": 1,
+                    "active": 0
+                },
+                {
+                    "country": "LR",
+                    "install": 1,
+                    "enable": 1,
+                    "active": 0
+                },
+                {
+                    "country": "RW",
+                    "install": 1,
+                    "enable": 1,
+                    "active": 0
+                },
+                {
+                    "country": "MW",
+                    "install": 1,
+                    "enable": 1,
+                    "active": 0
+                },
+                {
+                    "country": "ML",
+                    "install": 1,
+                    "enable": 1,
+                    "active": 0
+                },
+                {
+                    "country": "MU",
+                    "install": 1,
+                    "enable": 1,
+                    "active": 0
+                },
+                {
+                    "country": "MR",
+                    "install": 1,
+                    "enable": 1,
+                    "active": 0
+                },
+                {
+                    "country": "MA",
+                    "install": 1,
+                    "enable": 1,
+                    "active": 0
+                },
+                {
+                    "country": "MZ",
+                    "install": 1,
+                    "enable": 1,
+                    "active": 0
+                },
+                {
+                    "country": "ZA",
+                    "install": 1,
+                    "enable": 1,
+                    "active": 0
+                },
+                {
+                    "country": "SS",
+                    "install": 1,
+                    "enable": 1,
+                    "active": 0
+                },
+                {
+                    "country": "NE",
+                    "install": 1,
+                    "enable": 1,
+                    "active": 0
+                },
+                {
+                    "country": "NG",
+                    "install": 1,
+                    "enable": 1,
+                    "active": 0
+                },
+                {
+                    "country": "SL",
+                    "install": 1,
+                    "enable": 1,
+                    "active": 0
+                },
+                {
+                    "country": "SN",
+                    "install": 1,
+                    "enable": 1,
+                    "active": 0
+                },
+                {
+                    "country": "SA",
+                    "install": 1,
+                    "enable": 1,
+                    "active": 0
+                },
+                {
+                    "country": "SO",
+                    "install": 1,
+                    "enable": 1,
+                    "active": 0
+                },
+                {
+                    "country": "TZ",
+                    "install": 1,
+                    "enable": 1,
+                    "active": 0
+                },
+                {
+                    "country": "TN",
+                    "install": 1,
+                    "enable": 1,
+                    "active": 0
+                },
+                {
+                    "country": "UG",
+                    "install": 1,
+                    "enable": 1,
+                    "active": 0
+                },
+                {
+                    "country": "IR",
+                    "install": 1,
+                    "enable": 1,
+                    "active": 0
+                },
+                {
+                    "country": "ZM",
+                    "install": 1,
+                    "enable": 1,
+                    "active": 0
+                },
+                {
+                    "country": "TD",
+                    "install": 1,
+                    "enable": 1,
+                    "active": 0
+                },
+                {
+                    "country": "JO",
+                    "install": 1,
+                    "enable": 1,
+                    "active": 0
+                },
+                {
+                    "country": "GQ",
+                    "install": 1,
+                    "enable": 1,
+                    "active": 0
+                },
+                {
+                    "country": "DJ",
+                    "install": 1,
+                    "enable": 1,
+                    "active": 0
+                },
+                {
+                    "country": "GW",
+                    "install": 1,
+                    "enable": 1,
+                    "active": 0
+                },
+                {
+                    "country": "MG",
+                    "install": 1,
+                    "enable": 1,
+                    "active": 0
+                },
+                {
+                    "country": "Myanmar",
+                    "install": 1,
+                    "enable": 1,
+                    "active": 0
+                },
+                {
+                    "country": "BD",
+                    "install": 1,
+                    "enable": 1,
+                    "active": 0
+                },
+                {
+                    "country": "NP",
+                    "install": 1,
+                    "enable": 1,
+                    "active": 0
+                },
+                {
+                    "country": "VN",
+                    "install": 1,
+                    "enable": 1,
+                    "active": 0
+                },
+                {
+                    "country": "AR",
+                    "install": 1,
+                    "enable": 1,
+                    "active": 0
+                },
+                {
+                    "country": "PY",
+                    "install": 1,
+                    "enable": 1,
+                    "active": 0
+                },
+                {
+                    "country": "PA",
+                    "install": 1,
+                    "enable": 1,
+                    "active": 0
+                },
+                {
+                    "country": "BR",
+                    "install": 1,
+                    "enable": 1,
+                    "active": 0
+                },
+                {
+                    "country": "EC",
+                    "install": 1,
+                    "enable": 1,
+                    "active": 0
+                },
+                {
+                    "country": "PH",
+                    "install": 1,
+                    "enable": 1,
+                    "active": 0
+                },
+                {
+                    "country": "CR",
+                    "install": 1,
+                    "enable": 1,
+                    "active": 0
+                },
+                {
+                    "country": "HT",
+                    "install": 1,
+                    "enable": 1,
+                    "active": 0
+                },
+                {
+                    "country": "LB",
+                    "install": 1,
+                    "enable": 1,
+                    "active": 0
+                },
+                {
+                    "country": "MY",
+                    "install": 1,
+                    "enable": 1,
+                    "active": 0
+                },
+                {
+                    "country": "PE",
+                    "install": 1,
+                    "enable": 1,
+                    "active": 0
+                },
+                {
+                    "country": "MX",
+                    "install": 1,
+                    "enable": 1,
+                    "active": 0
+                },
+                {
+                    "country": "TH",
+                    "install": 1,
+                    "enable": 1,
+                    "active": 0
+                },
+                {
+                    "country": "VE",
+                    "install": 1,
+                    "enable": 1,
+                    "active": 0
+                },
+                {
+                    "country": "ID",
+                    "install": 1,
+                    "enable": 1,
+                    "active": 0
+                },
+                {
+                    "country": "CF",
+                    "install": 1,
+                    "enable": 1,
+                    "active": 0
+                },
+                {
+                    "country": "KH",
+                    "install": 1,
+                    "enable": 1,
+                    "active": 0
+                },
+                {
+                    "country": "IN",
+                    "install": 1,
+                    "enable": 1,
+                    "active": 0
+                },
+                {
+                    "country": "OM",
+                    "install": 1,
+                    "enable": 1,
+                    "active": 0
+                },
+                {
+                    "country": "QA",
+                    "install": 1,
+                    "enable": 1,
+                    "active": 0
+                },
+                {
+                    "country": "LK",
+                    "install": 1,
+                    "enable": 1,
+                    "active": 0
+                },
+                {
+                    "country": "UA",
+                    "install": 1,
+                    "enable": 1,
+                    "active": 0
+                },
+                {
+                    "country": "IQ",
+                    "install": 1,
+                    "enable": 1,
+                    "active": 0
+                },
+                {
+                    "country": "LY",
+                    "install": 1,
+                    "enable": 1,
+                    "active": 0
+                },
+                {
+                    "country": "PS",
+                    "install": 1,
+                    "enable": 1,
+                    "active": 0
+                },
+                {
+                    "country": "IL",
+                    "install": 1,
+                    "enable": 1,
+                    "active": 0
+                },
+                {
+                    "country": "KZ",
+                    "install": 1,
+                    "enable": 1,
+                    "active": 0
+                },
+                {
+                    "country": "BO",
+                    "install": 1,
+                    "enable": 1,
+                    "active": 0
+                },
+                {
+                    "country": "CL",
+                    "install": 1,
+                    "enable": 1,
+                    "active": 0
+                },
+                {
+                    "country": "CN",
+                    "install": 1,
+                    "enable": 1,
+                    "active": 0
+                },
+                {
+                    "country": "JM",
+                    "install": 1,
+                    "enable": 1,
+                    "active": 0
+                },
+                {
+                    "country": "PG",
+                    "install": 1,
+                    "enable": 1,
+                    "active": 0
+                },
+                {
+                    "country": "AZ",
+                    "install": 1,
+                    "enable": 1,
+                    "active": 0
+                },
+                {
+                    "country": "GE",
+                    "install": 1,
+                    "enable": 1,
+                    "active": 0
+                },
+                {
+                    "country": "UZ",
+                    "install": 1,
+                    "enable": 1,
+                    "active": 0
+                },
+                {
+                    "country": "KI",
+                    "install": 1,
+                    "enable": 1,
+                    "active": 0
+                },
+                {
+                    "country": "FM",
+                    "install": 1,
+                    "enable": 1,
+                    "active": 0
+                },
+                {
+                    "country": "NR",
+                    "install": 1,
+                    "enable": 1,
+                    "active": 0
+                },
+                {
+                    "country": "LA",
+                    "install": 1,
+                    "enable": 1,
+                    "active": 0
+                },
+                {
+                    "country": "KW",
+                    "install": 1,
+                    "enable": 1,
+                    "active": 0
+                },
+                {
+                    "country": "HN",
+                    "install": 1,
+                    "enable": 1,
+                    "active": 0
+                },
+                {
+                    "country": "GT",
+                    "install": 1,
+                    "enable": 1,
+                    "active": 0
+                },
+                {
+                    "country": "SG",
+                    "install": 1,
+                    "enable": 1,
+                    "active": 0
+                },
+                {
+                    "country": "NA",
+                    "install": 1,
+                    "enable": 1,
+                    "active": 0
+                },
+                {
+                    "country": "RS",
+                    "install": 1,
+                    "enable": 1,
+                    "active": 0
+                },
+                {
+                    "country": "BN",
+                    "install": 1,
+                    "enable": 1,
+                    "active": 0
+                },
+                {
+                    "country": "BA",
+                    "install": 1,
+                    "enable": 1,
+                    "active": 0
+                },
+                {
+                    "country": "ME",
+                    "install": 1,
+                    "enable": 1,
+                    "active": 0
+                },
+                {
+                    "country": "YE",
+                    "install": 1,
+                    "enable": 1,
+                    "active": 0
+                },
+                {
+                    "country": "UY",
+                    "install": 1,
+                    "enable": 1,
+                    "active": 0
+                },
+                {
+                    "country": "KG",
+                    "install": 1,
+                    "enable": 1,
+                    "active": 0
+                },
+                {
+                    "country": "MK",
+                    "install": 1,
+                    "enable": 1,
+                    "active": 0
+                },
+                {
+                    "country": "AL",
+                    "install": 1,
+                    "enable": 1,
+                    "active": 0
+                },
+                {
+                    "country": "FJ",
+                    "install": 1,
+                    "enable": 1,
+                    "active": 0
+                },
+                {
+                    "country": "SV",
+                    "install": 1,
+                    "enable": 1,
+                    "active": 0
+                },
+                {
+                    "country": "NI",
+                    "install": 1,
+                    "enable": 1,
+                    "active": 0
+                },
+                {
+                    "country": "SO",
+                    "install": 1,
+                    "enable": 1,
+                    "active": 0
+                },
+                {
+                    "country": "AF",
+                    "install": 1,
+                    "enable": 1,
+                    "active": 0
+                },
+                {
+                    "country": "BH",
+                    "install": 1,
+                    "enable": 1,
+                    "active": 0
+                },
+                {
+                    "country": "DK",
+                    "install": 1,
+                    "enable": 1,
+                    "active": 0
+                }
+            ]
+        }
+    }]
+}

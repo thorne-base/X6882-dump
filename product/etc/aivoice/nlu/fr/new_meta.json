@@ -1,0 +1,1078 @@
+{
+  "name": "fr",
+  "intents": [
+    {
+      "name": "Audio_MusicAdd",
+      "slot_names": [
+        "Album",
+        "AlbumMusicName",
+        "MusicName",
+        "Playlist"
+      ]
+    },
+    {
+      "name": "Audio_MusicPlay",
+      "slot_names": [
+        "Album",
+        "AlbumMusicName",
+        "AppName",
+        "Artist",
+        "ArtistBand",
+        "Band",
+        "GenericDate",
+        "MusicMode",
+        "MusicName",
+        "MusicSource",
+        "Playlist",
+        "Style"
+      ]
+    },
+    {
+      "name": "Calculator_CurrencyConversion",
+      "slot_names": []
+    },
+    {
+      "name": "Calculator_OrdinaryCalculate",
+      "slot_names": [
+        "CalculateContent"
+      ]
+    },
+    {
+      "name": "Calculator_UnitConversion",
+      "slot_names": []
+    },
+    {
+      "name": "Calendar_Add",
+      "slot_names": [
+        "GenericContent",
+        "GenericDate",
+        "GenericTime"
+      ]
+    },
+    {
+      "name": "Calendar_Delete",
+      "slot_names": [
+        "GenericDate",
+        "GenericTime"
+      ]
+    },
+    {
+      "name": "Calendar_Show",
+      "slot_names": [
+        "GenericDate",
+        "GenericTime"
+      ]
+    },
+    {
+      "name": "Camera_OpenCamera",
+      "slot_names": [
+        "AppName"
+      ]
+    },
+    {
+      "name": "Camera_SwitchCamera",
+      "slot_names": [
+        "CameraLens"
+      ]
+    },
+    {
+      "name": "Camera_SwitchMode",
+      "slot_names": [
+        "CameraLens",
+        "CameraMode"
+      ]
+    },
+    {
+      "name": "Camera_TakePhoto",
+      "slot_names": []
+    },
+    {
+      "name": "Camera_TakeSelfie",
+      "slot_names": []
+    },
+    {
+      "name": "Camera_TakeVideo",
+      "slot_names": []
+    },
+    {
+      "name": "Clock_AlarmCheck",
+      "slot_names": [
+        "GenericDate",
+        "GenericTime"
+      ]
+    },
+    {
+      "name": "Clock_AlarmDelete",
+      "slot_names": [
+        "GenericAll",
+        "GenericDate",
+        "GenericOrdinalNum",
+        "GenericTime"
+      ]
+    },
+    {
+      "name": "Clock_AlarmEnable",
+      "slot_names": [
+        "AlarmType",
+        "GenericAll",
+        "GenericDate",
+        "GenericOrdinalNum",
+        "GenericTime"
+      ]
+    },
+    {
+      "name": "Clock_AlarmSet",
+      "slot_names": [
+        "AlarmType",
+        "GenericAll",
+        "GenericDate",
+        "GenericOrdinalNum",
+        "GenericTime"
+      ]
+    },
+    {
+      "name": "Clock_AlarmUnset",
+      "slot_names": [
+        "GenericAll",
+        "GenericDate",
+        "GenericOrdinalNum",
+        "GenericTime"
+      ]
+    },
+    {
+      "name": "Clock_DateGet",
+      "slot_names": [
+        "GenericDate",
+        "GenericLocation"
+      ]
+    },
+    {
+      "name": "Clock_TimeGet",
+      "slot_names": [
+        "GenericLocation"
+      ]
+    },
+    {
+      "name": "Clock_TimerKeep",
+      "slot_names": []
+    },
+    {
+      "name": "Clock_TimerReplace",
+      "slot_names": []
+    },
+    {
+      "name": "Clock_TimerSet",
+      "slot_names": [
+        "GenericDuration"
+      ]
+    },
+    {
+      "name": "Communication_MessageAck",
+      "slot_names": []
+    },
+    {
+      "name": "Communication_MessageCancel",
+      "slot_names": [
+        "AppName"
+      ]
+    },
+    {
+      "name": "Communication_MessageSend",
+      "slot_names": [
+        "AppName",
+        "GenericContent",
+        "GenericOrdinalNum",
+        "GenericPerson",
+        "PhoneNum"
+      ]
+    },
+    {
+      "name": "Communication_PhoneAnswer",
+      "slot_names": []
+    },
+    {
+      "name": "Communication_PhoneCheck",
+      "slot_names": [
+        "AppName",
+        "GenericPerson"
+      ]
+    },
+    {
+      "name": "Communication_PhoneDial",
+      "slot_names": [
+        "AppName",
+        "GenericOrdinalNum",
+        "GenericPerson",
+        "PhoneNum"
+      ]
+    },
+    {
+      "name": "Communication_PhoneRedial",
+      "slot_names": []
+    },
+    {
+      "name": "Communication_PhoneReject",
+      "slot_names": []
+    },
+    {
+      "name": "Customization_BroadcastBusiness",
+      "slot_names": []
+    },
+    {
+      "name": "Customization_BroadcastTravel",
+      "slot_names": []
+    },
+    {
+      "name": "Customization_LocateCar",
+      "slot_names": [
+        "LocationType"
+      ]
+    },
+    {
+      "name": "Customization_ParkingSpot",
+      "slot_names": []
+    },
+    {
+      "name": "Customization_RecordParkingSpot",
+      "slot_names": [
+        "GenericLocation"
+      ]
+    },
+    {
+      "name": "Device_BrightnessDecrease",
+      "slot_names": []
+    },
+    {
+      "name": "Device_BrightnessIncrease",
+      "slot_names": []
+    },
+    {
+      "name": "Device_BrightnessMax",
+      "slot_names": [
+        "GenericIntNum",
+        "GenericMax"
+      ]
+    },
+    {
+      "name": "Device_BrightnessMin",
+      "slot_names": [
+        "GenericIntNum",
+        "GenericMin"
+      ]
+    },
+    {
+      "name": "Device_BrightnessSet",
+      "slot_names": [
+        "GenericIntNum"
+      ]
+    },
+    {
+      "name": "Device_CleanStorage",
+      "slot_names": [
+        "AppName"
+      ]
+    },
+    {
+      "name": "Device_KillVirus",
+      "slot_names": []
+    },
+    {
+      "name": "Device_NodisturbON",
+      "slot_names": []
+    },
+    {
+      "name": "Device_NodisturbOff",
+      "slot_names": []
+    },
+    {
+      "name": "Device_PowerSaving",
+      "slot_names": []
+    },
+    {
+      "name": "Device_Poweroff",
+      "slot_names": []
+    },
+    {
+      "name": "Device_PoweroffNo",
+      "slot_names": []
+    },
+    {
+      "name": "Device_PoweroffYes",
+      "slot_names": []
+    },
+    {
+      "name": "Device_QueryBattery",
+      "slot_names": []
+    },
+    {
+      "name": "Device_QueryConsumeDataTraffic",
+      "slot_names": [
+        "GenericDate"
+      ]
+    },
+    {
+      "name": "Device_QueryLeftDataTraffic",
+      "slot_names": []
+    },
+    {
+      "name": "Device_QueryLeftStorage",
+      "slot_names": []
+    },
+    {
+      "name": "Device_Reboot",
+      "slot_names": []
+    },
+    {
+      "name": "Device_SchedulePowerOn",
+      "slot_names": [
+        "AlarmType",
+        "GenericDate",
+        "GenericTime"
+      ]
+    },
+    {
+      "name": "Device_ScreenOff",
+      "slot_names": []
+    },
+    {
+      "name": "Device_ScreenRecording",
+      "slot_names": [
+        "RecordType"
+      ]
+    },
+    {
+      "name": "Device_ScreenShot",
+      "slot_names": []
+    },
+    {
+      "name": "Device_ScreenUseTime",
+      "slot_names": [
+        "AppName"
+      ]
+    },
+    {
+      "name": "Device_SettingsOff",
+      "slot_names": [
+        "DeviceName"
+      ]
+    },
+    {
+      "name": "Device_SettingsOn",
+      "slot_names": [
+        "DeviceName"
+      ]
+    },
+    {
+      "name": "Device_SpeedUp",
+      "slot_names": []
+    },
+    {
+      "name": "Device_SwitchSystemLanguage",
+      "slot_names": [
+        "Language"
+      ]
+    },
+    {
+      "name": "Device_UnlockPhone",
+      "slot_names": []
+    },
+    {
+      "name": "Device_VolumeDecrease",
+      "slot_names": []
+    },
+    {
+      "name": "Device_VolumeIncrease",
+      "slot_names": []
+    },
+    {
+      "name": "Device_VolumeMax",
+      "slot_names": [
+        "GenericIntNum",
+        "GenericMax"
+      ]
+    },
+    {
+      "name": "Device_VolumeMin",
+      "slot_names": [
+        "GenericIntNum",
+        "GenericMin"
+      ]
+    },
+    {
+      "name": "Device_VolumeMute",
+      "slot_names": []
+    },
+    {
+      "name": "Device_VolumeSet",
+      "slot_names": [
+        "GenericIntNum"
+      ]
+    },
+    {
+      "name": "Device_VolumeUnmute",
+      "slot_names": []
+    },
+    {
+      "name": "FM_Modulation",
+      "slot_names": [
+        "FmFrequency",
+        "FmName"
+      ]
+    },
+    {
+      "name": "Facebook_MessageAck",
+      "slot_names": [
+        "AppName"
+      ]
+    },
+    {
+      "name": "Facebook_MessageCancel",
+      "slot_names": [
+        "AppName"
+      ]
+    },
+    {
+      "name": "Facebook_MessageSend",
+      "slot_names": [
+        "AppName",
+        "GenericContent",
+        "GenericPerson"
+      ]
+    },
+    {
+      "name": "Generic_Add",
+      "slot_names": []
+    },
+    {
+      "name": "Generic_All",
+      "slot_names": [
+        "GenericAll"
+      ]
+    },
+    {
+      "name": "Generic_AppName",
+      "slot_names": [
+        "AppName"
+      ]
+    },
+    {
+      "name": "Generic_AppType",
+      "slot_names": [
+        "AppType"
+      ]
+    },
+    {
+      "name": "Generic_CalculateContent",
+      "slot_names": [
+        "CalculateContent"
+      ]
+    },
+    {
+      "name": "Generic_CameraLens",
+      "slot_names": [
+        "CameraLens"
+      ]
+    },
+    {
+      "name": "Generic_CameraMode",
+      "slot_names": [
+        "CameraMode"
+      ]
+    },
+    {
+      "name": "Generic_Cancel",
+      "slot_names": [
+        "GenericAll",
+        "GenericOrdinalNum"
+      ]
+    },
+    {
+      "name": "Generic_Complaint",
+      "slot_names": []
+    },
+    {
+      "name": "Generic_CustomLocation",
+      "slot_names": [
+        "CustomLocation"
+      ]
+    },
+    {
+      "name": "Generic_Date",
+      "slot_names": [
+        "GenericDate"
+      ]
+    },
+    {
+      "name": "Generic_DateLocation",
+      "slot_names": [
+        "GenericDate",
+        "GenericLocation"
+      ]
+    },
+    {
+      "name": "Generic_DateTime",
+      "slot_names": [
+        "AlarmType",
+        "GenericDate",
+        "GenericTime"
+      ]
+    },
+    {
+      "name": "Generic_DateType",
+      "slot_names": [
+        "DateType"
+      ]
+    },
+    {
+      "name": "Generic_DateTypeLocation",
+      "slot_names": [
+        "DateType",
+        "GenericLocation"
+      ]
+    },
+    {
+      "name": "Generic_Delete",
+      "slot_names": [
+        "GenericAll",
+        "GenericOrdinalNum"
+      ]
+    },
+    {
+      "name": "Generic_DeviceName",
+      "slot_names": [
+        "DeviceName"
+      ]
+    },
+    {
+      "name": "Generic_Duration",
+      "slot_names": [
+        "GenericDuration"
+      ]
+    },
+    {
+      "name": "Generic_FmFrequency",
+      "slot_names": [
+        "FmFrequency"
+      ]
+    },
+    {
+      "name": "Generic_FmName",
+      "slot_names": [
+        "FmName"
+      ]
+    },
+    {
+      "name": "Generic_Help",
+      "slot_names": []
+    },
+    {
+      "name": "Generic_IntNumber",
+      "slot_names": [
+        "GenericIntNum"
+      ]
+    },
+    {
+      "name": "Generic_Language",
+      "slot_names": [
+        "Language"
+      ]
+    },
+    {
+      "name": "Generic_Location",
+      "slot_names": [
+        "GenericLocation"
+      ]
+    },
+    {
+      "name": "Generic_LocationType",
+      "slot_names": [
+        "LocationType"
+      ]
+    },
+    {
+      "name": "Generic_Next",
+      "slot_names": [
+        "MediaType"
+      ]
+    },
+    {
+      "name": "Generic_No",
+      "slot_names": []
+    },
+    {
+      "name": "Generic_Open",
+      "slot_names": []
+    },
+    {
+      "name": "Generic_OridinalNum",
+      "slot_names": [
+        "GenericOrdinalNum"
+      ]
+    },
+    {
+      "name": "Generic_Person",
+      "slot_names": [
+        "GenericPerson"
+      ]
+    },
+    {
+      "name": "Generic_PhoneNumber",
+      "slot_names": [
+        "PhoneNum"
+      ]
+    },
+    {
+      "name": "Generic_Play",
+      "slot_names": []
+    },
+    {
+      "name": "Generic_Previous",
+      "slot_names": [
+        "MediaType"
+      ]
+    },
+    {
+      "name": "Generic_Resume",
+      "slot_names": [
+        "MediaType"
+      ]
+    },
+    {
+      "name": "Generic_Stop",
+      "slot_names": [
+        "MediaType"
+      ]
+    },
+    {
+      "name": "Generic_Time",
+      "slot_names": [
+        "GenericTime"
+      ]
+    },
+    {
+      "name": "Generic_Yes",
+      "slot_names": []
+    },
+    {
+      "name": "Joke_Play",
+      "slot_names": [
+        "JokeKeyword",
+        "JokeType"
+      ]
+    },
+    {
+      "name": "Launcher_AppClose",
+      "slot_names": [
+        "AppName",
+        "AppType"
+      ]
+    },
+    {
+      "name": "Launcher_AppDelete",
+      "slot_names": [
+        "AppName"
+      ]
+    },
+    {
+      "name": "Launcher_AppDownload",
+      "slot_names": [
+        "AppName",
+        "AppType"
+      ]
+    },
+    {
+      "name": "Launcher_AppOpen",
+      "slot_names": [
+        "AppName",
+        "AppType"
+      ]
+    },
+    {
+      "name": "Launcher_AppSearch",
+      "slot_names": [
+        "AppName",
+        "AppType"
+      ]
+    },
+    {
+      "name": "Launcher_AppUpdate",
+      "slot_names": [
+        "AppName"
+      ]
+    },
+    {
+      "name": "Navigation_CurrentLocation",
+      "slot_names": []
+    },
+    {
+      "name": "Navigation_Search",
+      "slot_names": [
+        "GenericLocation",
+        "LocationType",
+        "NavSearchKeyword"
+      ]
+    },
+    {
+      "name": "Navigation_Start",
+      "slot_names": [
+        "ByLocation",
+        "CustomLocation",
+        "DstLocation",
+        "NaviType",
+        "SrcLocation"
+      ]
+    },
+    {
+      "name": "Navigation_Stop",
+      "slot_names": []
+    },
+    {
+      "name": "News_Play",
+      "slot_names": [
+        "GenericDate",
+        "GenericLocation",
+        "NewsKeyword",
+        "NewsType"
+      ]
+    },
+    {
+      "name": "Notes_Add",
+      "slot_names": [
+        "GenericContent"
+      ]
+    },
+    {
+      "name": "Notes_Delete",
+      "slot_names": [
+        "NotesKeyword"
+      ]
+    },
+    {
+      "name": "Notes_Show",
+      "slot_names": [
+        "NotesKeyword",
+        "NotesShowType"
+      ]
+    },
+    {
+      "name": "Other",
+      "slot_names": []
+    },
+    {
+      "name": "Skill_SpellWord",
+      "slot_names": [
+        "GenericWord"
+      ]
+    },
+    {
+      "name": "Sports_StartSport",
+      "slot_names": [
+        "GenericDistance",
+        "GenericDuration",
+        "SportType"
+      ]
+    },
+    {
+      "name": "Sports_StopSport",
+      "slot_names": [
+        "SportType"
+      ]
+    },
+    {
+      "name": "Ticket_Reservation",
+      "slot_names": [
+        "DstLocation",
+        "GenericDate",
+        "GenericPerson",
+        "GenericTime",
+        "GenericTimeLine",
+        "SrcLocation",
+        "VehicleType"
+      ]
+    },
+    {
+      "name": "Translate_Translate",
+      "slot_names": [
+        "GenericContent",
+        "Language"
+      ]
+    },
+    {
+      "name": "Video_Play",
+      "slot_names": [
+        "Actor",
+        "Director",
+        "GenericCountry",
+        "GenericDate",
+        "GenericKeyword",
+        "Style",
+        "VideoName"
+      ]
+    },
+    {
+      "name": "Vskit_Search",
+      "slot_names": [
+        "VskitKeyword"
+      ]
+    },
+    {
+      "name": "Vskit_TakeVideo",
+      "slot_names": []
+    },
+    {
+      "name": "Weather_Forecast",
+      "slot_names": [
+        "DateType",
+        "GenericDate",
+        "GenericLocation"
+      ]
+    },
+    {
+      "name": "Weather_Temperature",
+      "slot_names": [
+        "DateType",
+        "GenericDate",
+        "GenericLocation"
+      ]
+    },
+    {
+      "name": "Web_Search",
+      "slot_names": [
+        "GenericContent"
+      ]
+    },
+    {
+      "name": "Whatsapp_AudioCall",
+      "slot_names": [
+        "AppName",
+        "GenericPerson"
+      ]
+    },
+    {
+      "name": "Whatsapp_Delete",
+      "slot_names": [
+        "AppName",
+        "GenericPerson"
+      ]
+    },
+    {
+      "name": "Whatsapp_Dynamic",
+      "slot_names": [
+        "AppName"
+      ]
+    },
+    {
+      "name": "Whatsapp_MessageAck",
+      "slot_names": [
+        "AppName"
+      ]
+    },
+    {
+      "name": "Whatsapp_MessageCancel",
+      "slot_names": [
+        "AppName"
+      ]
+    },
+    {
+      "name": "Whatsapp_MessageSend",
+      "slot_names": [
+        "AppName",
+        "GenericContent",
+        "GenericPerson"
+      ]
+    },
+    {
+      "name": "Whatsapp_PhotoAck",
+      "slot_names": [
+        "AppName"
+      ]
+    },
+    {
+      "name": "Whatsapp_PhotoCancel",
+      "slot_names": [
+        "AppName"
+      ]
+    },
+    {
+      "name": "Whatsapp_PhotoSend",
+      "slot_names": [
+        "AppName",
+        "GenericPerson"
+      ]
+    },
+    {
+      "name": "Whatsapp_VideoCall",
+      "slot_names": [
+        "AppName",
+        "GenericPerson"
+      ]
+    }
+  ],
+  "slots": [
+    {
+      "name": "Actor"
+    },
+    {
+      "name": "AlarmType"
+    },
+    {
+      "name": "Album"
+    },
+    {
+      "name": "AppName"
+    },
+    {
+      "name": "AppType"
+    },
+    {
+      "name": "Artist"
+    },
+    {
+      "name": "Band"
+    },
+    {
+      "name": "ByLocation"
+    },
+    {
+      "name": "CalculateContent"
+    },
+    {
+      "name": "CameraLens"
+    },
+    {
+      "name": "CameraMode"
+    },
+    {
+      "name": "CustomLocation"
+    },
+    {
+      "name": "DateType"
+    },
+    {
+      "name": "DeviceName"
+    },
+    {
+      "name": "Director"
+    },
+    {
+      "name": "DstLocation"
+    },
+    {
+      "name": "FmFrequency"
+    },
+    {
+      "name": "FmName"
+    },
+    {
+      "name": "GenericAll"
+    },
+    {
+      "name": "GenericContent"
+    },
+    {
+      "name": "GenericCountry"
+    },
+    {
+      "name": "GenericDate"
+    },
+    {
+      "name": "GenericDistance"
+    },
+    {
+      "name": "GenericDuration"
+    },
+    {
+      "name": "GenericIntNum"
+    },
+    {
+      "name": "GenericKeyword"
+    },
+    {
+      "name": "GenericLocation"
+    },
+    {
+      "name": "GenericMax"
+    },
+    {
+      "name": "GenericMin"
+    },
+    {
+      "name": "GenericOrdinalNum"
+    },
+    {
+      "name": "GenericPerson"
+    },
+    {
+      "name": "GenericTime"
+    },
+    {
+      "name": "GenericWord"
+    },
+    {
+      "name": "JokeKeyword"
+    },
+    {
+      "name": "JokeType"
+    },
+    {
+      "name": "Language"
+    },
+    {
+      "name": "LocationType"
+    },
+    {
+      "name": "MediaType"
+    },
+    {
+      "name": "MusicMode"
+    },
+    {
+      "name": "MusicName"
+    },
+    {
+      "name": "MusicSource"
+    },
+    {
+      "name": "NavSearchKeyword"
+    },
+    {
+      "name": "NaviType"
+    },
+    {
+      "name": "NewsKeyword"
+    },
+    {
+      "name": "NewsType"
+    },
+    {
+      "name": "NotesKeyword"
+    },
+    {
+      "name": "NotesShowType"
+    },
+    {
+      "name": "PhoneNum"
+    },
+    {
+      "name": "Playlist"
+    },
+    {
+      "name": "RecordType"
+    },
+    {
+      "name": "SportType"
+    },
+    {
+      "name": "SrcLocation"
+    },
+    {
+      "name": "Style"
+    },
+    {
+      "name": "VideoName"
+    },
+    {
+      "name": "VskitKeyword"
+    }
+  ]
+}

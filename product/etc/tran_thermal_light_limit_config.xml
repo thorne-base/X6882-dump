@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright (C) 2012 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<!--
+package: com.foo
+
+level1:
+    param1: the first threshold of temperature rise
+    param2: hysteresis temperature of param1 when temperature down
+    param3: brightness ratio when temperature over the first threshold
+    param4: luxlimit. the threshold value of ambient light intensity, when
+             the ambient lux is lower than it, it is indoors.(0: invalid)
+
+level2:
+    param1: the second threshold of temperature rise
+    param2: hysteresis temperature of param1 when temperature down
+    param3: brightness ratio when temperature over the second threshold
+    param4: luxlimit. the threshold value of ambient light intensity, when
+             the ambient lux is lower than it, it is indoors.(0: invalid)
+
+level3:
+    param1: the second threshold of temperature rise
+    param2: hysteresis temperature of param1 when temperature down
+    param3: brightness ratio when temperature over the second threshold
+    param4: luxlimit. the threshold value of ambient light intensity, when
+             the ambient lux is lower than it, it is indoors.(0: invalid)
+-->
+<packages>
+	<!--<black_list_config package="com.transsion.XOSLauncher"/>-->
+	<white_list_config package="^.*$" level1="42,40,80,0" level2="47,45,70,2000"/>                         <!--Common-->
+     <!--============================================重载游戏=======================================================-->
+	<white_list_config package="com.mobile.legends" level1="45,43,80,2000" level2="48,46,70,2200"/>            <!--MLBB-->
+	<white_list_config package="com.dts.freefireth" level1="45,43,80,0" level2="48,46,70,0"/>            <!--FreeFire-->
+	<white_list_config package="com.dts.freefiremax" level1="45,43,80,0" level2="48,46,70,0"/>           <!--FreeFire-->
+	<white_list_config package="com.tencent.ig" level1="45,43,80,0" level2="48,46,70,0"/>                <!--PUBG-->
+	<white_list_config package="com.pubg.imobile" level1="45,43,80,0" level2="48,46,70,0"/>                <!--PUBG-->
+	<white_list_config package="com.ea.gp.fifamobile" level1="45,43,80,2000" level2="48,46,70,2200"/>          <!--FIFA-->
+
+    <!--============================================中载游戏=======================================================-->
+        <white_list_config package="com.garena.game.codm" level1="45,43,80,2000" level2="48,46,70,2200"/>          <!--Call of Duty-->
+        <white_list_config package="com.kiloo.subwaysurf" level1="45,43,80,2000" level2="48,46,70,2200"/>          <!--Subway Surfers-->
+        <white_list_config package="com.yalla.yallagames" level1="45,43,80,2000" level2="48,46,70,2200"/>          <!--Yalla Ludo-->
+        <white_list_config package="com.roblox.client" level1="45,43,80,2000" level2="48,46,70,2200"/>             <!--Roblox-->
+        <white_list_config package="com.king.candycrushsaga" level1="45,43,80,2000" level2="48,46,70,2200"/>       <!--Candy Crush Saga-->
+        <white_list_config package="com.ludo.king" level1="45,43,80,2000" level2="48,46,70,2200"/>                 <!--Ludo King-->
+
+<!--==============================================社交=========================================================-->
+<!--********************************************长视频*********************************************************-->
+	<white_list_config package="com.google.android.youtube" level1="45,43,80,2000" level2="48,46,70,2200"/>
+	<white_list_config package="com.android.vending" level1="41,39,80,0" level2="46,44,65,0"/>
+<!--********************************************短视频*********************************************************-->
+	<white_list_config package="com.ss.android.ugc.trill" level1="43,41,80,0" level2="46,44,70,0"/>
+	<white_list_config package="com.ss.android.ugc.aweme" level1="43,41,80,0" level2="46,44,70,0"/>
+	<white_list_config package="com.zhiliaoapp.musically" level1="43,41,80,0" level2="46,44,70,0"/>
+	<white_list_config package="com.zhiliaoapp.musically.go" level1="43,41,80,0" level2="46,44,70,0"/>
+<!--********************************************social*********************************************************-->
+	<white_list_config package="com.instagram.android" level1="45,43,80,2000" level2="48,46,70,2200"/>
+	<white_list_config package="com.facebook.katana" level1="45,43,80,2000" level2="48,46,70,2200"/>
+	<white_list_config package="com.facebook.lite" level1="45,43,80,2000" level2="48,46,70,2200"/>
+<!--*********************************************通话**********************************************************-->
+	<white_list_config package="com.sh.smart.caller" level1="45,43,80,2000" level2="48,46,70,2200"/>
+	<white_list_config package="com.whatsapp" level1="45,43,65,0" level2="48,46,55,0"/>
+<!--*********************************************浏览器********************************************************-->
+	<white_list_config package="com.android.chrome" level1="45,43,80,2000" level2="48,46,70,2200"/>
+
+<!--============================================相机场景=======================================================-->
+	<white_list_config package="com.transsion.camera" level1="45,43,80,2000" level2="48,46,70,2200"/>          <!--自研相机-->
+	<white_list_config package="com.snapchat.android" level1="45,43,80,2000" level2="48,46,70,2200"/>          <!--Snapchat-->
+	<white_list_config package="in.mohalla.video" level1="45,43,80,2000" level2="48,46,70,2200"/>              <!--Moj-->
+	<white_list_config package="com.eterno.shortvideos" level1="45,43,80,2000" level2="48,46,70,2200"/>        <!--Josh-->
+	<white_list_config package="com.meitu.meiyancamera" level1="45,43,80,2000" level2="48,46,70,2200"/>        <!--BeautyCam-->
+	<white_list_config package="sg.bigo.live" level1="45,43,80,2000" level2="48,46,70,2200"/>                  <!--BIGO LIVE-->
+	<white_list_config package="video.like" level1="45,43,80,2000" level2="48,46,70,2200"/>                    <!--Likee-->
+	<white_list_config package="com.twitter.android" level1="45,43,80,2000" level2="48,46,70,2200"/>           <!--Twitter-->
+	<white_list_config package="com.imo.android.imoim" level1="45,43,80,2000" level2="48,46,70,2200"/>         <!--imo-->
+	<white_list_config package="com.cyberlink.youcammakeup" level1="45,43,80,2000" level2="48,46,70,2200"/>    <!--YouCam Makeup-->
+
+
+<!--(history):
+	<white_list_config package="com.miHoYo.Yuanshen" level1="54,52,80,2000"/>
+	<white_list_config package="com.dts.freefireth" level1="54,52,80,2000"/>
+	<white_list_config package="com.tencent.ig" level1="54,52,80,2000"/>
+	<white_list_config package="com.tencent.tmgp.sgame" level1="54,52,80,2000"/>
+	<white_list_config package="org.readera" level1="54,52,80,2000"/>
+	<white_list_config package="com.ss.android.ugc.aweme" level1="42,40,80,0" level2="45,43,70,2000" level3="48,46,50,2200"/>
+	<white_list_config package="com.whatsapp" level1="42,40,80,2000" level2="50,48,70,2000" level3="54,52,50,0"/>
+	<white_list_config package="com.facebook.katana" level1="42,40,80,2000" level2="50,48,70,2000" level3="54,52,50,0"/>
+	<white_list_config package="us.zoom.videomeetings" level1="42,40,80,2000" level2="50,48,70,2000" level3="54,52,50,0"/>
+	<white_list_config package="com.instagram.android" level1="42,40,80,2000" level2="50,48,70,2000" level3="54,52,50,0"/>
+	<white_list_config package="com.transsion.camera" level1="42,40,80,2000" level2="50,48,70,2000" level3="54,52,50,0"/>
+-->
+</packages>

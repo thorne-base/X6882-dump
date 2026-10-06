@@ -1,0 +1,3 @@
+com.transsion.compass
+com.google.android.videos
+com.google.android.apps.docs

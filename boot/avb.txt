@@ -1,0 +1,27 @@
+Footer version:           1.0
+Image size:               67108864 bytes
+Original image size:      21020672 bytes
+VBMeta offset:            21020672
+VBMeta size:              1664 bytes
+--
+Minimum libavb version:   1.0
+Header Block:             256 bytes
+Authentication Block:     320 bytes
+Auxiliary Block:          1088 bytes
+Public key (sha1):        9d808b0995768d0677fccb1efcddb7cf9e153d99
+Algorithm:                SHA256_RSA2048
+Rollback Index:           2
+Flags:                    0
+Rollback Index Location:  0
+Release String:           'avbtool 1.2.0'
+Descriptors:
+    Hash descriptor:
+      Image Size:            21020672 bytes
+      Hash Algorithm:        sha256
+      Partition Name:        boot
+      Salt:                  7f6500a714f029a9fd000bcbf3759d94897622cd60fe8decf0ce053f9c0f00c8
+      Digest:                26b2bd521b6ed7299c546cc9346304387796cafc2a24e53639a75179c821f660
+      Flags:                 0
+    Prop: com.android.build.boot.fingerprint -> 'Infinix/X6881-OP/Infinix-X6881:12/SP1A.210812.016/250806V840:user/release-keys'
+    Prop: com.android.build.boot.os_version -> '12'
+    Prop: com.android.build.boot.security_patch -> '2024-04-05'

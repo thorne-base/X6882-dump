@@ -1,0 +1,4 @@
+#SPD: add by feng.an 20210813 start
+on property:sys.boot_completed=1
+    mkdir /data/services_spdopts 0775 system system encryption=None
+	mkdir /data/vendor/trancpufreqtime 0775 system system encryption=None

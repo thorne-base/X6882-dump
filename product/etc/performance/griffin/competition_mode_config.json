@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "update": 20240410,
+  "ram_level": 8,
+  "switch": true,
+  "white_list":[],
+  "block_list":[
+    "com.transsion.tranfansfeedback",
+    "com.android.vending"
+  ]
+}

@@ -1,0 +1,10 @@
+{
+    "acoustic" : "dfsmn_on_device_20230417_fp32_export.mnn",
+    "fbank" : "asr_en_fbank.bin",
+    "hwindow" : "asr_en_hann_window.bin",
+    "lm" : null,
+    "vocab" : "tokens",
+    "hwbaselm" : "base.arpa",
+    "hwmoulds" : "templates.txt",
+    "hwlm" : "asr_fr_newlm.bin"
+}

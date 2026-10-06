@@ -1,0 +1,15 @@
+<trans_sched.config version="2.0" encoding="UTF-8" enable="0x17">
+<!-- "enable": trans_sched state ==> 0x01/0x03:on, 0x00:off -->
+    <uxtag  default="UX_TASK_TAGS_DEFAULT" uxtag_nr="5">
+    <!-- "default": default value of uxtags for task; "uxtag_nr": quantity of instance below-->
+        <instance name="wmshell.anim" value="UX_TASK_TAGS_EXACT"/>
+        <instance name="android.ui" value="UX_TASK_TAGS_EXACT"/>
+        <instance name="audio_mixer_ux" value="UX_TASK_TAGS_EPROMOTE1"/>
+        <instance name="camera_launch_ux" value="UX_TASK_TAGS_EDROP1"/>
+        <instance name="fingerprint-anim" value="UX_TASK_TAGS_EXACT"/>
+    </uxtag>
+    <blacklist black_nr="1">
+    <!-- "black_nr": quantity of instance below-->
+        <instance name="com.transsion.sk"/>
+    </blacklist>
+</trans_sched.config>

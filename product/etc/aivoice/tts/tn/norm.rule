@@ -1,0 +1,679 @@
+digits        \d+(?:\.\d+)?
+
+degree     °
+minute     (?:'|′)
+second     (?:"|″)
+hemisphere N|E|S|W
+degrees    {digits}{degree}
+minutes    {digits}{minute}
+seconds    {digits}{second}
+datedelim   [\./-]
+abbrmonth   Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec
+amountdigits [1-9][\d\s,]*[\s,][\d\s,]*[0-9]
+amount      crores|Crore|crore|lacs|lakh|thousand|million|MILLION|Million|billion|Billion|BILLION|Trillion|trillion|Bn|bn|Cr|cr|[mMbBKk]
+currency    ￥|¥|￡|£|€|[$]|Ksh|DKK|CZK|NOK|PLN|EUR|USD|HK\$|NZ\$|US\$|A\$|DM|Rs\.|Rs|N
+currencysuff KRW|AED|VND|USD|CHF|rs\.|dollars|\$
+unit    sq\smi|℃|°C|%|m³/s|/km²|/km2|km2|km²|GB|GHz|Gbps|MHz|Hz|kV|mph|km/h|/h|lbs|hrs|hp|lb|ft|""|yd|MW|kW|kg|ha|mL|km|cm|nm|mm|mi
+dunit   in|bn|C|G|g|m|F
+coordinate_unit  {degree}|{minute}|{second}
+units   {unit}|{dunit}|{coordinate_unit}
+
+// interpret judge format according to context
+interpret punctuation begin
+//@fixme muti & not supported
+//@fixme MatchTokenRegex not supported for tokenize
+//20:30,20:55
+MatchRegex(0, 0, "[,\.]") & (MatchRegex(-3, -1, ":") & MatchRegex(1, 3, "\d")) :tokenize
+MatchRegex(0, 0, "[,\.]") & (MatchRegex(-1, -1, "\d") & MatchRegex(1, 1, "\d")) :number
+// 12, 000 Workers 500, 000 followers 1. 1 million
+// Sept 15, 2022
+MatchRegex(0, 0, ",") & (MatchRegex(-1, -1, "\d") & MatchRegex(1, 2, "\s0")) :number
+MatchRegex(0, 0, "\.") & (MatchRegex(-1, -1, "\d") & MatchRegex(1, 2, "\s\d")) :number
+MatchRegex(0, 0, ":") & (MatchRegex(-1, -1, "\d") & MatchRegex(1, 1, "\d")) :time
+MatchRegex(0, 0, "@") & MatchRegex(1, 10, "\.co|\.uk|\.com") net
+MatchRegex(0, 5, "\.co|\.uk|\.com") :net
+MatchRegex(0, 2, "/h|/s|/km") :du
+// e.g. April 10, 2013
+//MatchRegex(0, 0, "[,\.]") & ((MatchRegex(-1, -1, "\d") & !MatchRegex(-3, -3, "\d")) & MatchRegex(2, 5, "\d{4}")) :date
+// e.g. Dec. 4, 2014
+MatchRegex(-3, 1, "Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec") & MatchRegex(2, 2, "\d") :date
+// 13-Apr-14
+MatchRegex(0, 0, "-") & MatchRegex(-3, 5, "Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec") :date
+MatchRegexIGC(-3, 3, "a\.m\.|p\.m\.|a\.m|p\.m") :time
+MatchRegex(-4, 5, "\d{4}-\d{2}-\d{2}") | MatchRegex(-7, 2, "\d{4}-\d{2}-\d{2}") :date
+MatchRegex(-4, 5, "\d{4}/\d{1,2}/\d{1,2}") | MatchRegex(-7, 2, "\d{4}/\d{1,2}/\d{1,2}") :date
+MatchRegex(-2, 7, "\d{1,2}/\d{1,2}/\d{4}") | MatchRegex(-5, 4, "\d{1,2}/\d{1,2}/\d{4}") :date
+MatchRegex(-2, 7, "\d{1,2}-\d{1,2}-\d{4}") | MatchRegex(-5, 4, "\d{1,2}-\d{1,2}-\d{4}") :date
+// 03/14/16
+MatchRegex(-2, 5, "\d{1,2}/\d{1,2}/\d{2}") | MatchRegex(-5, 2, "\d{1,2}/\d{1,2}/\d{2}") :date
+// e.g. -5, -8C -9x10^-10 Covid-19 under-18 1-2C
+// @fixme MatchRegex(-1, 1, " -\d")
+MatchRegex(-1, 1, "\s-\d") | MatchRegex(-1, 1, "^-\d") :number
+//MatchRegex(0, 0, "[()]") :bracket
+MatchRegex(0, 10, "[\d-]{11,}") || MatchRegex(-10, 0, "[\d-]{11,}") : sn
+// remembers.
+MatchRegexIGC(-2,0,"rs\.") & MatchRegex(1,1,"\d") :currency
+MatchRegex(-1, 1, "\w'\w") :contraction
+MatchRegex(0, 3, "'\d{2}s") :decade
+MatchRegex(-4, 2, "\d{4}-\d{2}") :year_duration
+MatchRegex(-2, 2, "\d{1,2}-\d{2}") & MatchRegex(3, 4, "am|pm") :time
+// @todo MatchCond support subrule
+// fix "to-dos"
+MatchRegex(0, 0, "-") & (MatchTokenRegex(-1, -1, ".*\d+.*") | MatchTokenRegex(1, 1, ".*\d+.*")) :tokenize
+MatchRegex(0, 0, "-") :hyphen
+// fix "contact(s)" // @workaround for ")" syntax error
+// std::regex use \u while boost regex use \x https://www.boost.org/doc/libs/1_31_0/libs/regex/doc/syntax.html
+MatchRegex(-2, 2, "\(s\x29") :plural
+MatchRegex(-2, 0, "Mr.") :abbrev
+true :tokenize
+interpret punctuation end
+
+format bracket (.*)
+//MatchRegex(0, 0, "(") :(
+//MatchRegex(0, 0, ")") : )
+format bracket end
+
+interpret number begin
+MatchRegex(0, 0, "0") & !MatchRegex(1, 1, ".") :account
+MatchWord(-2, 1, "call,phone") :telephone
+MatchWord(-2, 1, "number") & !MatchWord(-4, -3, "house,room") :telephone
+MatchWord(1, 1, "January,February,March,April,May,June,July,August,September,October,November,December") :dm
+MatchWord(1, 1, "Jan,Feb,Mar,Apr,May,Jun,July,Aug,September,October,November,December") :dm
+!MatchRegex(2, 2, "\d") & MatchWord(1, 1, "january,february,march,april,may,june,july,august,september,october,november,december") :dm
+MatchTokenRegex(0, 0, "\d{4}") & MatchWord(-3, -1, "January,February,March,April,May,June,July,August,September,October,November,December") :year
+MatchTokenRegex(0, 0, "\d{4}") & MatchWord(-2, -1, "january,february,march,april,may,june,july,august,september,october,november,december") :year
+MatchWord(-1, -1, "January,February,March,April,May,June,July,August,September,October,November,December") :md
+MatchWord(-1, -1, "january,february,march,april,may,june,july,august,september,october,november,december") :md
+MatchWord(-1, -1, "Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov,Dec,Sept") :md
+MatchTokenRegex(0, 0, "\d{4}") & MatchWord(-1, -1, "In,in,since,Since,by,By,from,to,before,until,Until,of") :year
+MatchTokenRegex(0, 0, "\d{4}") & MatchWord(-2, -1, "In,in,on,around") :year
+MatchTokenRegex(0, 0, "\d{4}") & MatchWord(-3, -1, "Between,between") :year
+MatchTokenRegex(0, 0, "\d{4}") & MatchWord(-4, -1, "hours") :year
+MatchTokenRegex(0, 0, "\d{4}") & MatchWord(1, 1, "edition,Election") :year
+MatchTokenRegex(0, 0, "\d{4}") & MatchWord(-2, -1, "Time,time") :year
+// MatchRegex(-2, 5, "\(\s*\d{4}\s*\)") :year
+MatchRegex(0, 6, "'s") :year
+MatchWord(-5, -3, "hours") & !MatchWord(-1, -1, "every"):24hc
+MatchWord(-1, -1, "Boeing,Unit") : model
+MatchRegex(0, 10, "\d{10,}") :telephone
+MatchRegex(0, 3, "\d\.\d") & MatchWord(1, 1, "GMT,am,pm") :24hc
+MatchWord(-3, -1, "account,accounts") :account
+// 22-23 June
+MatchWord(1, 1, "-") & MatchWord(3,3,"January,February,March,April,May,June,July,August,September,October,November,December") :ordinal
+MatchRegex(-20,20,"in \d{4} , \d{4} and \d{4}") :year
+//Match(-20,20,"in *, * and *")
+//MatchFormat(-1,-1,"year")
+MatchTokenRegex(0,0,"19\d{2}") | MatchTokenRegex(0,0,"20\d{2}") :year
+MatchRegex(0,15,"\d{1,2} and \d{1,2}") & MatchWord(3,3,"January,February,March,April,May,June,July,August,September,October,November,December") :dm
+MatchWord(-1, -1, "GA") :zipcode
+MatchRegex(-12,-1,"€\d.* to ") :cd
+true : algorism
+interpret number end
+
+interpret fraction begin
+MatchRegex(1, 10, ":") & MatchRegex(1, 10, "CEST|AEST|BST|EST|KST|IST|PDT|PST|EDT|GMT|CST|UTC|ET") :24hc
+MatchRegex(1, 10, ":") & MatchWord(-1, -1, "from,to") & MatchWord(1, 5, "day") :24hc
+MatchRegex(1, 10, ":") & MatchWord(-1, -1, "around,until,at,by") :24hc
+MatchRegex(1, 10, ":") & MatchWord(1, 1, "a.m.,p.m.") :12hc
+MatchRegex(1, 10, ":") & MatchWord(-2, -1, "Alarm,alarm") :24hc
+MatchRegex(1, 10, ":") :24hc
+//MatchRegex(1, 10, "/") & MatchWord(-2, -1, "in") :24hc
+MatchTokenRegex(0, 0, "\d{4}/\d{2}") & MatchWord(-2, -1, "in,league") :year_duration
+MatchTokenRegex(0, 0, "\d{1,2}/\d{4}") :my
+MatchWord(0, 0, "24/7") :slash_ignore
+interpret fraction end
+
+interpret duration begin
+MatchWord(-1, -1, "Between,years") :yd
+true :nd
+interpret duration end
+
+format email (\w+)@(\w+).(\w+)
+true :{1,readAsRef,0} at {2,readAsRef,0} dot {3,readAsRef,0}
+format email end
+
+format email @(\w+).(\w+)
+true :at {1,readAsRef,0} dot {2,readAsRef,0}
+format email end
+
+format email (\w+)@(\w+).(\w+).(\w+)
+true :{1,readAsRef,0} at {2,readAsRef,0} dot {3,readAsRef,0} dot {4,readAsRef,0}
+format email end
+
+format dms ({degrees}) ({minutes}) ({seconds}) ({hemisphere})
+true :{1,du,0} {2,du,0} {3,du,0} {4,fhemisphere,0}
+format dms end
+
+format fhemisphere .*
+MatchWord(0,0,"N") :North
+MatchWord(0,0,"W") :West
+MatchWord(0,0,"S") :South
+MatchWord(0,0,"E") :East
+format fhemisphere end
+
+format dmy (\d+){datedelim}(\d+){datedelim}(\d{4})
+// test
+// !(MatchRegex(-30, 30, "call|phone|number|is") | MatchRegex(-20, 30, "call|phone")) : abcd
+// {MatchWord, -3, 3, "call,phone,number"} & {WordLen,8,11}
+// true:the {1,readOrdinal,0} of {2,readOrdinal,1} {3,readAlgorism,1}
+true :the {1,readOrdinal,0} of {2,month,0} {3,year,0}
+format dmy end
+
+format dmy (\d+)[\. ](\w+)[\. ](\d{2})
+true :the {1,readOrdinal,0} of {2,month,0} {3,year,0}
+format dmy end
+
+format month (.*)
+// @todo MatchWord
+// can not merge regex e.g. 8/9
+MatchWord(0,0,"1,01") | MatchWord(0,0,"Jan") :January
+MatchWord(0,0,"2,02") | MatchWord(0,0,"Feb") :February
+MatchWord(0,0,"3,03") | MatchWord(0,0,"Mar") :March
+MatchWord(0,0,"4,04") | MatchWord(0,0,"Apr") :April
+MatchWord(0,0,"5,05") | MatchWord(0,0,"May") :May
+MatchWord(0,0,"6,06") | MatchWord(0,0,"Jun") :June
+MatchWord(0,0,"7,07") | MatchWord(0,0,"Jul") :July
+MatchWord(0,0,"8,08") | MatchWord(0,0,"Aug") :August
+MatchWord(0,0,"9,09") | MatchWord(0,0,"Sep") :September
+MatchWord(0,0,"10") | MatchWord(0,0,"Oct") :October
+MatchWord(0,0,"11") | MatchWord(0,0,"Nov") :November
+MatchWord(0,0,"12") | MatchWord(0,0,"Dec") :December
+format month end
+
+// e.g. 7-Aug-07
+format dmy (\d+)-({abbrmonth})-(\d{2})
+//test
+//MatchRegex(0, 10, "Aug") :{1,md,0} of {2,abbryear,0}
+//MatchRegex(0, 10, "Aug") :the {1,readOrdinal,0} of {2,abbryear,0}
+true :the {1,readOrdinal,0} of {2,month,0} {3,year,0}
+format dmy end
+
+// e.g. 3 January 2017
+format dmy (\d+).*?(1\d)
+format dmy end
+
+//e.g. Dec. 10, 2003
+//e.g. Sep 7, 2009
+format mdy ({abbrmonth})\.? (\d+), (\d{4})
+true :{1,month,0} {2,readOrdinal,0} , {3,year,0}
+format mdy end
+
+//e.g. April 10, 2003
+format mdy (.*) (\d+), *(\d{4})
+true :{1,readAsRef,0} {2,readOrdinal,0} , {3,year,0}
+format mdy end
+
+//e.g. 03/14/16
+format mdy (\d+)/(\d+)/(\d+)
+true :{1,month,0} {2,readOrdinal,0} {3,year,0}
+format mdy end
+
+format ymd (\d{4})[-/](\d+)[-/](\d+)
+true :the {3,readOrdinal,0} of {2,month,0} {1,year,0}
+format ymd end
+
+format my (\d+)/(\d+)
+true :{1,month,0} {2,year,0}
+format my end
+
+format year_possession (\d+)'s
+MatchTokenRegex(0,0,"\d{3}0's") | MatchTokenRegex(0,0,"\d0's") :{0,decade,0}
+true :{1,year,0}'s
+format year end
+
+format year (\d000)
+true :{1,readAlgorism,0}
+format year end
+
+format year (\d+)00
+true :{1,readAlgorism,0} hundred
+format year end
+
+format year 200(\d)
+true :two thousand {1,readAlgorism,0}
+format year end
+
+format year (\d{2})0(\d)
+true :{1,readAlgorism,0} o {2,readAlgorism,0}
+format year end
+
+format year (\d{2})(\d{2})
+true :{1,readAlgorism,0} {2,readAlgorism,0}
+format year end
+
+format year (0\d)
+true :two thousand {1,readAlgorism,0}
+format year end
+
+format year (\d{2})
+true :twenty {1,readAlgorism,0}
+format year end
+
+// test
+// format abbryear (.*)
+// MatchRegex(-1, 0, "Aug") :two thousand {1,readAlgorism,0} here
+// MatchRegex(-10, 0, "Aug") :is {1,dm,0} here
+// format abbryear end
+
+format dm (\d+)
+MatchWord(1,1,"-,and") :the {1,readOrdinal,0}
+true :the {1,readOrdinal,0} of
+format dm end
+
+format md (\d+)
+true :{1,readOrdinal,0}
+format md end
+
+// @todo readAsFormat
+format decade (\d{2})(\d{2})(s|'s|’s)
+MatchRegex(2, 4, "90") :{1,readAlgorism,0} nineties
+MatchRegex(2, 4, "80") :{1,readAlgorism,0} eighties
+MatchRegex(2, 4, "70") :{1,readAlgorism,0} seventies
+MatchRegex(2, 4, "50") :{1,readAlgorism,0} fifties
+MatchRegex(2, 4, "40") :{1,readAlgorism,0} forties
+MatchRegex(2, 4, "30") :{1,readAlgorism,0} thirties
+MatchRegex(2, 4, "20") :{1,readAlgorism,0} twenties
+MatchRegex(2, 4, "00") :{1,readAlgorism,0} hundred's
+true :{1,readAlgorism,0} {2,readAlgorism,0}'s
+format decade end
+
+format decade '?(\d{2})(s|'s|’s)
+MatchRegex(0, 4, "80") :eighties
+MatchRegex(0, 4, "70") :seventies
+MatchRegex(0, 4, "50") :fifties
+MatchRegex(0, 4, "40") :forties
+MatchRegex(0, 4, "30") :thirties
+MatchRegex(0, 4, "20") :twenties
+format decade end
+
+format 12hc (\d+[:-]\d+)\s*(.*)
+true :{1,24hc,0} {2,ampm,0}
+format 12hc end
+
+format ampm (.*)
+MatchWord(0,0,"a.m.,A.M.,a.m,A.M,am,AM") :AM
+MatchWord(0,0,"p.m.,P.M.,p.m,P.M,pm,PM") :PM
+true :err haah
+format ampm end
+
+format 12hc (\d{1,2})\s*(.*)
+true :{1,readAlgorism,0} {2,ampm,0}
+format 12hc end
+
+format 24hc (\d+):(\d+):(\d+)
+true :{1,readAlgorism,0} hours {2,readAlgorism,0} minutes {3,readAlgorism,0} seconds
+format 24hc end
+
+format 24hc (\d+)[-:.](\d+)
+MatchRegex(2, 4, "00") :{1,readAlgorism,0}
+MatchRegex(2, 4, "0\d") :{1,readAlgorism,0} {2,readOneByOne,0}
+true :{1,readAlgorism,0} {2,readAlgorism,0}
+format 24hc end
+
+format pd (\d+)-(\d+)%
+true :{1,readAlgorism,0} to {2,readAlgorism,0} percent
+format pd end
+
+format nd (\d+)-(\d+)
+true :{1,readAlgorism,0} to {2,readAlgorism,0}
+format nd end
+
+// 2019/20
+format year_duration (\d+)[/-](\d+)
+true :{1,year,0} to {2,readAlgorism,0}
+format year_duration end
+
+format yd (\d+)-(\d+)
+true :{1,year,0} to {2,year,0}
+format yd end
+
+format du -(.*)
+//MatchRegex(0, 0, "-") & MatchRegex(0, 10, "℃|°C|C\b") :minus {1,readAlgorism,0} degrees Celsius
+true :minus {1,du,0}
+format du end
+
+format du (1|1\.0+) *({units})
+true :{1,readAlgorism,0} {2,funit,0}
+format du end
+
+format du ({amountdigits}|{digits}) *({units})
+// in 1974 in London
+MatchWord(-1,-1,"in") & MatchRegex(0,6,"\d{4} in") :{1,year,0} {2,readAsRef,0}
+true :{1,readAlgorism,0} {2,funit,0}
+format du end
+
+format funit (.*)
+MatchWord(0, 0, "℃,°C,C") :degrees Celsius
+MatchWord(0, 0, "F") :degrees Fahrenheit
+MatchWord(0, 0, "%") :percent
+MatchWord(0, 0, "sq mi") :square miles
+MatchWord(0, 0, "/km2,/km²") :per square kilometres
+MatchWord(0, 0, "km2,km²") :square kilometres
+MatchWord(0, 0, "m³/s") :cubic metres per second
+MatchWord(0, 0, "GB") :gigabyte
+MatchWord(0, 0, "Gbps") :G b p s
+MatchWord(0, 0, "km/h") :kilometres per hour
+MatchWord(0, 0, "km") :kilometres
+MatchWord(0, 0, "cm") :centimetres
+MatchWord(0, 0, "kg") :kilograms
+MatchWord(0, 0, "MW") :megawatts
+MatchWord(0, 0, "kW") :kilowatts
+MatchWord(0, 0, "lbs,lb") :pounds
+MatchWord(0, 0, "mph") :miles per hour
+MatchWord(0, 0, "/h") :per hour
+MatchWord(0, 0, "mi") :miles
+MatchWord(0, 0, "nm") :nanometres
+MatchWord(0, 0, "ha") :hectares
+MatchWord(0, 0, "mL") :milliliters
+MatchWord(0, 0, "mm") :millimetres
+MatchWord(0, 0, "MHz") :megahertz
+MatchWord(0, 0, "GHz") :gigahertz
+MatchWord(0, 0, "Hz") :hertz
+MatchWord(0, 0, "kV") :kilo volts
+MatchWord(0, 0, "hrs") :hours
+MatchWord(0, 0, "hp") :horsepower
+MatchWord(0, 0, "ft") :feet
+MatchWord(0, 0, "bn") :billion
+MatchWord(0, 0, "yd") :yards
+MatchWord(0, 0, """") :inches
+MatchWord(0, 0, "in") & MatchRegex(-1,-1,"\s") :in
+MatchWord(0, 0, "in") :inches
+MatchWord(0, 0, "G") :G
+MatchWord(0, 0, "g") :grams
+MatchWord(0, 0, "m") & (MatchWord(1,1,"runner,hurdles,blades") | MatchWord(1,2,"far")) :metres
+MatchWord(0, 0, "m") & MatchRegex(1,8,"\d+ft") :metres
+MatchWord(0, 0, "m") :million
+MatchWord(0, 0, "°") :degrees
+MatchWord(0, 0, "',′") :minutes
+MatchWord(0, 0, "",″") :seconds
+format funit end
+
+// @todo check if can merge
+format dac (\d+)\.0+\b\s({amount})\s(USD)
+true :{1,readAlgorism,0} {2,famount,0} {3,fcurrency,0}
+format dac end
+
+format dac ({digits})\s*({amount})\s*({currencysuff})
+true :{1,readAlgorism,0} {2,famount,0} {3,fcurrency,0}
+format dac end
+
+format famount (.*)
+MatchWord(0, 0, "lacs") :lakh
+MatchWord(0, 0, "crores,Cr,cr") :crore
+MatchWord(0, 0, "m") :million
+MatchWord(0, 0, "bn,b") :billion
+MatchWord(0, 0, "K,k") :thousand
+true :{0,readAsRef,0}
+format famount end
+
+format fcurrency (.*)
+MatchWord(0, 0, "AED") :united arab emirates dirhams
+MatchWord(0, 0, "KRW") :korean won
+MatchWord(0, 0, "VND") :vietnamese dongs
+MatchWord(0, 0, "CHF") :swiss francs
+MatchWord(0, 0, "CZK") :czech korunas
+MatchWord(0, 0, "Ksh") :Kenyan Shillings
+MatchWord(0, 0, "NOK") :norwegian kroner
+MatchWord(0, 0, "DM") :german marks
+MatchWord(0, 0, "DKK") :danish kroner
+MatchWord(0, 0, "rs.,Rs,Rs.") :rupees
+MatchWord(0, 0, "USD") :united states dollars
+MatchWord(0, 0, "dollars") :dollars
+MatchWord(0, 0, "NZ$") :new Zealand dollars
+MatchWord(0, 0, "$") :dollars
+MatchWord(0, 0, "￡,£") :pounds
+MatchWord(0, 0, "€") :euros
+MatchWord(0, 0, "￥") :yuan
+MatchWord(0, 0, "N") :Naira
+format fcurrency end
+
+format dc (\d+)\.(\d{2})\s(USD)
+true :{1,readAlgorism,0} united states dollars and {2,readAlgorism,0} cents
+format dc end
+
+format dc ({digits})\s*({currencysuff})
+true :{1,readAlgorism,0} {2,fcurrency,0}
+format dc end
+
+// e.g. $9.0 billion
+format cda ({currency})\s*(\d+)\.0+\b({amount})
+true :{2,readAlgorism,0} {3,famount,0} {1,fcurrency,0}
+format cda end
+
+format cda ({currency}) *({digits}) *({amount})
+true :{2,readAlgorism,0} {3,famount,0} {1,fcurrency,0}
+format cda end
+
+format cdo ((?:{currency}){digits})(.+)
+true :{1,cd,0} {2,readAsRef,0}
+format cdo end
+
+format cd (￡1|£1)
+MatchRegex(0, 5, "\d+") :one pound
+format cd end
+
+format cd (￡|£)0\.(\d{2})
+true :{2,readAlgorism,0} pence
+format cd end
+
+format cd (￡|£)(\d+)\.(\d{2})
+MatchRegex(0, 5, "\b1\.") :{2,readAlgorism,0} pound {3,readAlgorism,0} pence
+// MatchRegex(0, 5, "\.01\b") :{2,readAlgorism,0} pounds one pence
+!MatchRegex(0, 5, "\.00\b") :{2,readAlgorism,0} pounds {3,readAlgorism,0} pence
+format cd end
+
+// £35,000
+format cd ({currency})({amountdigits})
+true :{2,readAlgorism,0} {1,fcurrency,0}
+format cd end
+
+format cd (\$1)
+true :one dollar
+format cd end
+
+format cd (US\$|A\$|\$|€)0\.(\d{2})
+true :{2,readAlgorism,0} cents
+format cd end
+
+format cd 0\.(\d{2})
+MatchRegex(-12,-1,"US\$|A\$|\$|€") :{1,readAlgorism,0} cents
+format cd end
+
+format cd (US\$|A\$|\$)(\d+)\.(\d{2})
+MatchRegex(0, 7, "\b1\.00\b") :one dollar
+MatchRegex(0, 5, "\b1\.") :{2,readAlgorism,0} dollar and {3,readAlgorism,0} cents
+MatchRegex(0, 7, "\.01\b") :{2,readAlgorism,0} dollars and one cent
+MatchRegex(0, 7, "\.00\b") :{2,readAlgorism,0} dollars
+true :{2,readAlgorism,0} dollars and {3,readAlgorism,0} cents
+format cd end
+
+format cd ({currency})\s*({digits})
+true :{2,readAlgorism,0} {1,fcurrency,0}
+format cd end
+
+format ads (.+)(\d+)(.+)
+true :{1,readAsRef,0} {2,readAlgorism,0} {3,readOneByOne,0}
+format ads end
+
+format ada (.*?)(\d+)(.*?)
+MatchTokenRegex(0,0,".*'s") :{1,readOneByOne,0} {2,model,0}{3,readAsRef,0}
+true :{1,readOneByOne,0} {2,model,0} {3,readOneByOne,0}
+format ada end
+
+format ad (.*?)(\d+)
+true :{1,readAsRef,0} {2,model,0}
+format ad end
+
+format da (\d+)(.*)
+MatchTokenRegex(0,0,"\d+s") :{1,readAlgorism,0}'s
+MatchTokenRegex(0,0,"\d+k") :{1,readAlgorism,0} thousand
+true :{1,model,0} {2,readOneByOne,0}
+format da end
+
+format ds (\d+)(.+)
+true :{1,readAlgorism,0} {2,readOneByOne,0}
+format ds end
+
+format int_frac (\d+) (\d+ */ *\d+)
+true :{1,readAlgorism,0} and {2,ffraction,0}
+format int_frac end
+
+format cd_frac (.+)/(.+)
+true :{1,cd,0} per {2,readAsRef,0}
+format cd_frac end
+
+format slash_ignore (.+)/(.+)
+true :{1,readAlgorism,0} {2,readAlgorism,0}
+format slash_ignore end
+
+format ffraction (1) */ *(2)
+true :a half
+format ffraction end
+
+format ffraction (1) */ *(4)
+true :a quarter
+format ffraction end
+
+format ffraction (\d+) */ *(\d+)
+true :{1,readAlgorism,0} {2,readOrdinal,0}
+format ffraction end
+
+//interpret subnum begin
+//MatchRegex(0, 0, "\d+'s") :year
+//MatchRegex(0, 0, "\d+-year-old") :sub_algorism
+//interpret subnum end
+//
+//format subnum (\d+).+
+//MatchRegex(0, 0, "\d+'s") :
+//MatchRegex(0, 0, "\d+-year-old") :sub_algorism
+//format subnum end
+
+format hn #(\d+)
+true :number {1,readAlgorism,0}
+format hn end
+
+format telephone (.*)
+true:{1,readOneByOne,0}
+format telephone end
+
+format model (\d{1,2})(\d{2})
+MatchRegex(0, 0, "0") :{0,readOneByOne,0}
+true :{1,readAlgorism,0} {2,readAlgorism,0}
+format model end
+
+format model (.*)
+MatchTokenRegex(0,0,"\d{2}") :{1,readAlgorism,0}
+true:{1,readOneByOne,0}
+format model end
+
+format ordinal (\d+)(st|nd|rd|th)?
+MatchWord(1,1,"January,February,March,April,May,June,July,August,September,October,November,December") :{1,dm,0}
+MatchWord(1,1,"-") & MatchTokenRegex(2,2,"\d.*") :the {1,readOrdinal,0}
+true :{1,readOrdinal,0}
+format ordinal end
+
+format adec (.*)
+true:{1,readAlgorism,0}
+format adec end
+
+format sd [+-]?({digits})
+MatchRegex(0, 0, "\+") & MatchWord(-2,-1,"phone") :plus {1,readOneByOne,0}
+MatchRegex(0, 0, "\+") :plus {1,readAlgorism,0}
+MatchRegex(0, 0, "-") :minus {1,readAlgorism,0}
+true :{1,readAlgorism,0}
+format sd end
+
+format account (.*)
+true:{1,readOneByOne,0}
+format account end
+
+format sci ([-]?{digits})x10\^([-]?{digits})
+true :{1,sd,0} by ten to the power of {2,sd,0}
+format sci end
+
+format sn (.*)
+true:{1,readOneByOne,0}
+format sn end
+
+format an \+(.*)
+true:plus {1,readOneByOne,0}
+format an end
+
+format zipcode (.*)
+true:{1,readOneByOne,0}
+format zipcode end
+
+format algorism (.*)
+true:{1,readAlgorism,0}
+format algorism end
+
+format daa (\d+)-(.*)-(.*)
+// @tbd readAsRef interface
+true :{1,readAlgorism,0} {2,readAsRef,0} {3,readAsRef,0}
+format daa end
+
+format apd (.*)-(\d+).*
+true :{1,readAsRef,0} {2,readAlgorism,0}
+format apd end
+
+format oda (\d+).*-(.*)
+true :{1,readOrdinal,0} {2,readAsRef,0}
+format oda end
+
+format had (.*)-(\d+)
+true :{1,readAsRef,0} {2,readAlgorism,0}
+format had end
+
+format hda (\d+)-(.*)
+true :{1,readAlgorism,0} {2,readAsRef,0}
+format hda end
+
+format abbrev (.*)
+IsName(1) : saint
+MatchWord(1,1,"NE,ne") : street
+true :{1,readAsRef,0}
+format abbrev end
+
+format roman (.*)
+MatchWord(0,0,"I") :{0,readAsRef,0}
+// Mark D Martin
+IsName(-1) & MatchRegexIGC(0,0,"[ivx]") :the {0, readOrdinal, 1}
+//WordLen(0, 2, 10) :{0, card_roman, 0}
+// normal word "I"
+true :{0,readAsRef,0}
+format roman end
+
+format ampersand (.*)
+true:and
+format ampersand end
+
+format at (.*)
+true:at
+format at end
+
+format hyphen (.*)
+MatchRegex(-4, -1, "\d") & MatchRegex(1, 5, "\d") :to
+// @todo
+true: 
+true :{0,readAsRef,0}
+format hyphen end
+
+format slash (.*)
+// divide
+// or
+// per
+// #ingnore Oxford/AstraZeneca
+MatchWord(1,1,"month,night"):per
+format slash end
+
+format slash_or (.*)/(.*)
+true :{1,readAsRef,0}, {2,readAsRef,0}
+format slash_or end
+
+format plural (.*)\(s\)
+true :{1,readAsRef,0}s
+format plural end
+
+format unknow (.*)
+//true:{1,readOneByOne,0}
+format unknow end

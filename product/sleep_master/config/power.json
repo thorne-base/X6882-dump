@@ -1,0 +1,63 @@
+{
+  "version": "1.0.8",
+  "enabledSleepMaster": true,
+  "enabledAbnormalHandler": true,
+  "enabledForceStop": true,
+  "enabledForegroundForceStop": true,
+  "enabledForegroundForceRemoveWl": true,
+  "foregroundTopForceStopInterval": 60,
+  "enabledTopForegroundForceStop": true,
+  "blackPackages": [
+        "com.aisecurity",
+        "com.clean.oneboost.cleaner.onebooster.security",
+        "com.cleaner.fastcleaner.booster.security.clean",
+        "com.jingyao.easybike",
+        "com.maps.locator.gps.gpstracker.phone",
+        "com.pubg.imobile",
+        "com.purple.files.manager.king",
+        "com.roblox.client",
+        "com.tencent.ig",
+        "com.tencent.lolm",
+        "com.tencent.tmgp.pubgmhd",
+        "com.wavefilemaster.filemanager.wav",
+        "proxy.browser.unblock.sites.proxybrowser.unblocksites",
+        "com.duolingo",
+        "tv.africa.streaming"
+  ],
+  "forceStopPackages": [
+        "com.aisecurity",
+        "com.clean.oneboost.cleaner.onebooster.security",
+        "com.cleaner.fastcleaner.booster.security.clean",
+        "com.maps.locator.gps.gpstracker.phone",
+        "com.pubg.imobile",
+        "com.roblox.client",
+        "com.tencent.android.qqdownloader",
+        "com.tencent.ig",
+        "com.tencent.lolm",
+        "com.tencent.tmgp.pubgmhd",
+        "com.purple.files.manager.king",
+        "com.wavefilemaster.filemanager.wav",
+        "proxy.browser.unblock.sites.proxybrowser.unblocksites",
+        "com.duolingo",
+        "tv.africa.streaming"
+  ],
+  "forceStopForegroundPackages": [
+        "com.aisecurity",
+        "com.clean.oneboost.cleaner.onebooster.security",
+        "com.cleaner.fastcleaner.booster.security.clean",
+        "com.maps.locator.gps.gpstracker.phone",
+        "com.purple.files.manager.king",
+        "com.roblox.client",
+        "com.wavefilemaster.filemanager.wav",
+        "proxy.browser.unblock.sites.proxybrowser.unblocksites"
+  ],
+  "forceRemoveWlForegroundPackages": [
+  ],
+  "forceStopTopForegroundPackages": [
+        "com.pubg.imobile",
+        "com.tencent.ig",
+        "com.tencent.tmgp.pubgmhd",
+        "com.tencent.lolm",
+        "proxy.browser.unblock.sites.proxybrowser.unblocksites"
+  ]
+}

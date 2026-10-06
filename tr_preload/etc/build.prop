@@ -1,0 +1,24 @@
+####################################
+# from generate-common-build-props
+# These properties identify this partition image.
+####################################
+ro.product.tr_preload.brand=TRANSSION
+ro.product.tr_preload.device=COMMON
+ro.product.tr_preload.manufacturer=TRANSSION
+ro.product.tr_preload.name=TSSI
+ro.tr_preload.build.date=Wed Aug  6 18:38:06 CST 2025
+ro.tr_preload.build.date.utc=1754476686
+ro.tr_preload.build.fingerprint=TRANSSION/TSSI/COMMON:14/UP1A.231005.007/250806V860:user/release-keys
+ro.tr_preload.build.id=UP1A.231005.007
+ro.tr_preload.build.tags=release-keys
+ro.tr_preload.build.type=user
+ro.tr_preload.build.version.incremental=250806V860
+ro.tr_preload.build.version.release=14
+ro.tr_preload.build.version.release_or_codename=14
+ro.tr_preload.build.version.sdk=34
+####################################
+# from variable PRODUCT_TR_PRELOAD_PROPERTIES
+####################################
+ro.tran.tr_preload.support=1
+ro.tran.tr_preload.version=OP-220417V1
+# end of file

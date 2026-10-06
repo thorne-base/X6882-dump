@@ -1,0 +1,50 @@
+{
+    "AAM_default_config": [{
+        "packageName": "com.transsion.aivoiceassistant",
+        "configData": {
+            "countryData": [{
+                    "country": "default",
+                    "install": 1,
+                    "enable": 1,
+                    "active": 0
+                }
+            ]
+        }
+    },
+    {
+        "packageName": "com.transsion.ella",
+        "configData": {
+            "countryData": [{
+                    "country": "default",
+                    "install": 1,
+                    "enable": 1,
+                    "active": 0
+                }
+            ]
+        }
+    },
+    {
+        "packageName": "com.transsion.folax",
+        "configData": {
+            "countryData": [{
+                    "country": "default",
+                    "install": 1,
+                    "enable": 1,
+                    "active": 0
+                }
+            ]
+        }
+    },
+    {
+        "packageName": "com.transsion.aivana",
+        "configData": {
+            "countryData": [{
+                    "country": "default",
+                    "install": 1,
+                    "enable": 1,
+                    "active": 0
+                }
+            ]
+        }
+    }]
+}
